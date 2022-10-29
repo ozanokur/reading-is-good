@@ -16,14 +16,14 @@ public class BookController {
 	
 	@Autowired
 	BookService bookService;
-    
-    @PostMapping("/")
-    public Book addBook(@RequestBody @Valid Book book) {
-    	return bookService.save(book);
-    }
-    
-    @PatchMapping("/{bookId}")
-    public Book updateStock(Long bookId, @Valid BookStockUpdateRequest request) {
-    	return bookService.updateStock(bookId, request.getCount());
-    }
+	
+	@PostMapping("/")
+	public Book addBook(@RequestBody @Valid Book book) {
+		return bookService.save(book);
+	}
+	
+	@PatchMapping("/{bookId}")
+	public Book updateStock(Long bookId, @Valid BookStockUpdateRequest request) {
+		return bookService.updateStock(bookId, request.getCount());
+	}
 }

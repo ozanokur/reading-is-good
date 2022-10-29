@@ -9,19 +9,19 @@ import org.springframework.stereotype.Service;
 public class BookService {
 	@Autowired
 	BookRepository bookRepository;
-    
-    public Book save(Book book) {
-    	return bookRepository.save(book);
-    }
-    
-    @Transactional
-    public Book updateStock(Long id, Long count) {
-    	Book bookToBeUpdated = findById(id);
-    	
-    	validateUpdateRequest(bookToBeUpdated, count);
-    	
-    	return persistUpdateRequest(bookToBeUpdated, count);
-    }
+	
+	public Book save(Book book) {
+		return bookRepository.save(book);
+	}
+	
+	@Transactional
+	public Book updateStock(Long id, Long count) {
+		Book bookToBeUpdated = findById(id);
+		
+		validateUpdateRequest(bookToBeUpdated, count);
+		
+		return persistUpdateRequest(bookToBeUpdated, count);
+	}
 
 	private void validateUpdateRequest(Book bookToBeUpdated, Long count) {
 		if (bookToBeUpdated.getCount() + count < 0) {
@@ -29,13 +29,13 @@ public class BookService {
 		}
 	}
 
-    private Book persistUpdateRequest(Book bookToBeUpdated, Long count) {
-    	bookToBeUpdated.setCount(bookToBeUpdated.getCount() + count);
-    	return bookRepository.save(bookToBeUpdated);
+	private Book persistUpdateRequest(Book bookToBeUpdated, Long count) {
+		bookToBeUpdated.setCount(bookToBeUpdated.getCount() + count);
+		return bookRepository.save(bookToBeUpdated);
 	}
 
 	public Book findById(Long id) {
-    	return bookRepository.findById(id).orElseThrow(() -> new RuntimeException("No book with id:" + id + " found."));
-    }
-    
+		return bookRepository.findById(id).orElseThrow(() -> new RuntimeException("No book with id:" + id + " found."));
+	}
+	
 }

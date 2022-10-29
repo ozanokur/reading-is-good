@@ -21,7 +21,7 @@ public class BookStockUpdateRequest implements Serializable {
 	private static final long serialVersionUID = 5589037548558975442L;
 
 	@NotNull(message = "Book update count can not be null.")
-    private Long count;
-    
+	private Long count;
+	
 }
 

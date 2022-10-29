@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class StatisticsController {
 	@Autowired
 	StatisticsService statisticsService;
-    
-    @GetMapping("/{customerId}")
-    public List<CustomerStatistics> findOrderStatistics(Long customerId) {
-    	return statisticsService.findOrderStatistics(customerId);
-    }
+	
+	@GetMapping("/{customerId}")
+	public List<CustomerStatistics> findOrderStatistics(Long customerId) {
+		return statisticsService.findOrderStatistics(customerId);
+	}
 }

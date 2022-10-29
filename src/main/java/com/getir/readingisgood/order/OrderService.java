@@ -24,10 +24,10 @@ public class OrderService {
 	BookService bookService;
 	@Autowired
 	CustomerService customerService;
-    
-    public Order save(@RequestBody Order customer) {
-    	return orderRepository.save(customer);
-    }
+	
+	public Order save(@RequestBody Order customer) {
+		return orderRepository.save(customer);
+	}
 
 	public Page<Order> findAllOrdersOfCustomer(Long customerId, Pageable pageable) {
 		return orderRepository.findByCustomerId(customerId, pageable);
@@ -57,5 +57,5 @@ public class OrderService {
 	public List<Order> findOrdersByInterval(Date startDate, Date endDate) {
 		return orderRepository.findByDateGreaterThanEqualAndDateLessThanEqual(startDate, endDate);
 	}
-    
+	
 }

@@ -24,14 +24,14 @@ public class CustomerController {
 	CustomerService customerService;
 	@Autowired
 	OrderService orderService;
-    
-    @GetMapping("/{customerId}/orders")
-    public Page<Order> findAllOrders(@PathVariable Long customerId, Paging paging) {
-    	return orderService.findAllOrdersOfCustomer(customerId, PagingUtils.getPageable(paging));
-    }
-    
-    @PostMapping("/")
-    public Customer addCustomer(@RequestBody @Valid Customer customer) {
-    	return customerService.save(customer);
-    }
+	
+	@GetMapping("/{customerId}/orders")
+	public Page<Order> findAllOrders(@PathVariable Long customerId, Paging paging) {
+		return orderService.findAllOrdersOfCustomer(customerId, PagingUtils.getPageable(paging));
+	}
+	
+	@PostMapping("/")
+	public Customer addCustomer(@RequestBody @Valid Customer customer) {
+		return customerService.save(customer);
+	}
 }

@@ -21,22 +21,22 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer implements Serializable {
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2247009649660330713L;
 
 	@Id
-    @SequenceGenerator(name="SEQUENCE", sequenceName="SEQUENCE", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQUENCE")
-    private Long id;
+	@SequenceGenerator(name="SEQUENCE", sequenceName="SEQUENCE", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQUENCE")
+	private Long id;
 
 	@NotNull(message = "Customer name can not be null.")
-    private String name;
+	private String name;
 
 	@NotNull(message = "Customer email can not be null.")
 	@Email(message = "Customer email is not valid.")
-    private String email;
-    
+	private String email;
+	
 }
 

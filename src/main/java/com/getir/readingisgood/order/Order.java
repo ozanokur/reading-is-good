@@ -25,29 +25,29 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Order implements Serializable {
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2247009649660330713L;
 
 	@Id
-    @SequenceGenerator(name="SEQUENCE", sequenceName="SEQUENCE", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQUENCE")
-    private Long id;
+	@SequenceGenerator(name="SEQUENCE", sequenceName="SEQUENCE", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQUENCE")
+	private Long id;
 	
 	private Long count;
-    
-    private Long customerId;
+	
+	private Long customerId;
 
-    private Long bookId;
+	private Long bookId;
 
 	@JsonFormat(pattern="dd/MM/yyyy ")
-    private Date date;
-    
-    @PrePersist
-    public void prePersist() {
-    	date = new Date();
-    }
-    
+	private Date date;
+	
+	@PrePersist
+	public void prePersist() {
+		date = new Date();
+	}
+	
 }
 
