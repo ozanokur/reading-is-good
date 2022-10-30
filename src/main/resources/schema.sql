@@ -2,7 +2,7 @@ drop sequence if exists sequence;
 
 drop table if exists book_order, customer, book;
 	
-CREATE SEQUENCE "sequence" 
+CREATE SEQUENCE "SEQUENCE" 
 MINVALUE 1 
 MAXVALUE 999999999 
 INCREMENT BY 1 

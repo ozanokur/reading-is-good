@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 
 public interface CustomerStatistics {
-	String getMonth();
+	String getIntervalMonth();
 	Integer getOrderCount();
 	Integer getBookCount();
 	BigDecimal getPurchasedAmount();

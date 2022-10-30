@@ -21,7 +21,7 @@ public interface OrderRepository extends JpaRepository<Order, Long>, JpaSpecific
 	List<Order> findByDateGreaterThanEqualAndDateLessThanEqual(Date startDate, Date endDate);
 	
 	@Query(value = "select "
-			+ "to_char(DATE_TRUNC('month',date), 'Mon YYYY') as month, count(*) as orderCount, sum(book_order.count) as bookCount, sum(book.price) as purchasedAmount "
+			+ "to_char(DATE_TRUNC('month',date), 'Mon YYYY') as intervalMonth, count(*) as orderCount, sum(book_order.count) as bookCount, sum(book.price) as purchasedAmount "
 			+ "from book_order "
 			+ "join book "
 			+ "on book_order.book_id = book.id "
