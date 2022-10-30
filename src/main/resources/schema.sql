@@ -27,6 +27,8 @@ create table customer (
     primary key (id)
 );
 
+CREATE INDEX customer_email ON customer(email);
+
 create table book_order (
    id int8 not null,
     book_id int8 not null,
@@ -41,6 +43,10 @@ create table book_order (
 	  foreign key(book_id) 
 	  references book(id)
 );
+
+CREATE INDEX book_order_customer ON book_order(customer_id);
+
+CREATE INDEX book_order_date ON book_order(date);
 
 create table app_user (
    id int8 not null,

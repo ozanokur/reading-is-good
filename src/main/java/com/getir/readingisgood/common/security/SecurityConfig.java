@@ -30,7 +30,7 @@ public class SecurityConfig {
 	JwtService jwtService;
 	
 	private static final String[] SECURIY_WHITELIST = {
-			"/user/**"
+			"/users/**"
 	};
 	
 	private static final String[] SWAGGER_WHITELIST = {

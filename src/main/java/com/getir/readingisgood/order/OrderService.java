@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.getir.readingisgood.book.Book;
 import com.getir.readingisgood.book.BookService;
@@ -24,12 +23,9 @@ public class OrderService {
 	BookService bookService;
 	@Autowired
 	CustomerService customerService;
-	
-	public Order save(@RequestBody Order customer) {
-		return orderRepository.save(customer);
-	}
 
 	public Page<Order> findAllOrdersOfCustomer(Long customerId, Pageable pageable) {
+		customerService.findByCustomerId(customerId);
 		return orderRepository.findByCustomerId(customerId, pageable);
 	}
 
